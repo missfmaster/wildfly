@@ -118,22 +118,17 @@ public class TransactionSubsystemTestCase extends AbstractSubsystemBaseTest {
     }
 
     @Test
-    public void testParser_1_2() throws Exception {
-        standardSubsystemTest("full-1.2.xml");
+    public void testParser_EAP_6_4() throws Exception {
+        standardSubsystemTest("full-1.5.xml");
     }
 
     @Test
-    public void testParser_1_3() throws Exception {
-        standardSubsystemTest("full-1.3.xml");
-    }
-
-    @Test
-    public void testParser_3_0() throws Exception {
+    public void testParser_EAP_7_0() throws Exception {
         standardSubsystemTest("full-3.0.xml");
     }
 
     @Test
-    public void testParser_4_0() throws Exception {
+    public void testParser_EAP_7_1() throws Exception {
         standardSubsystemTest("full-4.0.xml");
     }
 
@@ -191,7 +186,8 @@ public class TransactionSubsystemTestCase extends AbstractSubsystemBaseTest {
 
         // Add legacy subsystems
         builder.createLegacyKernelServicesBuilder(null, controllerVersion, modelVersion)
-                .addMavenResourceURL("org.jboss.eap:wildfly-transactions:" + controllerVersion.getMavenGavVersion())
+                .addMavenResourceURL(String.format("%s:%s:%s",
+                        controllerVersion.getMavenGroupId(), "wildfly-transactions", controllerVersion.getMavenGavVersion()))
                 .excludeFromParent(SingleClassFilter.createFilter(TransactionLogger.class));
 
         KernelServices mainServices = builder.build();
