@@ -24,7 +24,6 @@ package org.jboss.as.txn.subsystem;
 import com.arjuna.ats.arjuna.coordinator.TxStats;
 import org.jboss.as.controller.ModelVersion;
 import org.jboss.as.controller.PathAddress;
-import org.jboss.as.controller.PathElement;
 import org.jboss.as.controller.descriptions.ModelDescriptionConstants;
 import org.jboss.as.controller.operations.common.Util;
 import org.jboss.as.controller.transform.OperationTransformer;
@@ -213,8 +212,6 @@ public class TransactionSubsystemTestCase extends AbstractSubsystemBaseTest {
                     public ModelNode fixModel(ModelNode modelNode) {
                         modelNode.remove("path");
                         modelNode.remove("relative-to");
-//                        modelNode.remove("maximum-timeout");
-                        modelNode.get("maximum-timeout").set(31536000);
                         return modelNode;
                     }
                 };
@@ -230,9 +227,6 @@ public class TransactionSubsystemTestCase extends AbstractSubsystemBaseTest {
                                 logStore.remove("expose-all-logs");
                             }
                         }
-
-//                        modelNode.get(JacORBSubsystemDefinitions.INTEROP_CHUNK_RMI_VALUETYPES.getName()).set(JacORBSubsystemDefinitions.INTEROP_CHUNK_RMI_VALUETYPES.getDefaultValue());
-//                        modelNode.get("maximum-timeout").set(31536000);
                         return modelNode;
                     }
                 };
