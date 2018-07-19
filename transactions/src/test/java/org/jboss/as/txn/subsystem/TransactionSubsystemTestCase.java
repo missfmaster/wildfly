@@ -315,7 +315,6 @@ public class TransactionSubsystemTestCase extends AbstractSubsystemBaseTest {
         modelNode.get(TransactionSubsystemRootResourceDefinition.JOURNAL_STORE_ENABLE_ASYNC_IO.getName()).set(true);
         modelNode.get(TransactionSubsystemRootResourceDefinition.USE_HORNETQ_STORE.getName()).set(true);
         modelNode.get(TransactionSubsystemRootResourceDefinition.USE_JOURNAL_STORE.getName()).set(true);
-//        modelNode.get(TransactionSubsystemRootResourceDefinition.MAXIMUM_TIMEOUT.getName()).set(31536000);
         return modelNode;
     };
 }
