@@ -65,7 +65,7 @@ import static org.jboss.as.controller.descriptions.ModelDescriptionConstants.SUB
 @ServerSetup({MaximumTimeoutTestCase.TimeoutSetup.class})
 public class MaximumTimeoutTestCase {
 
-    private static final String MESSAGE_REGEX = ".*\\bWARN\\b.*WFLYTX0039: The transaction timeout has been set to %d while the value is 0";
+    private static final String MESSAGE_REGEX = ".*\\bWARN\\b.*WFLYTX0039: A value of zero is not permitted for the maximum timeout, as such the timeout has been set to %d";
 
     private static final String MAX_TIMEOUT_ATTR = "maximum-timeout";
     private static final String DEF_TIMEOUT_ATTR = "default-timeout";
